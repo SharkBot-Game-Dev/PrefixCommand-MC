@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "prefixcommand",
+  "version": "${version}",
+  "name": "PrefixCommand",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/prefixcommand/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "fabric-datagen": [
+      "org.shark.prefixcommand.client.PrefixcommandDataGenerator"
+    ],
+    "client": [
+      "org.shark.prefixcommand.client.PrefixcommandClient"
+    ],
+    "main": [
+      "org.shark.prefixcommand.Prefixcommand"
+    ]
+  },
+  "mixins": [
+    "prefixcommand.mixins.json",
+    {
+      "config": "prefixcommand.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
