@@ -3,9 +3,10 @@ Prefixコマンドを簡単に実装できるMinecraftJavaMod
 
 # セットアップ
 <a href="https://github.com/SharkBot-Game-Dev/PrefixCommand-MC/releases/latest">ここから</a> 最新の.jarをダウンロードし、<br>
+libフォルダに配置します。（ない場合は作成）<br>
 build.gradleのdependenciesに以下を追加します。<br>
 ```
-compileOnly "org.shark.prefixcommand:バージョン"
+compileOnly fileTree(dir: 'lib', include: ['*.jar'])
 ```
 
 # コマンドを作成する
