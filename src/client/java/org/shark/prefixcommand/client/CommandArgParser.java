@@ -19,7 +19,16 @@ public class CommandArgParser {
 
             String commandName = commandAndPrefix.substring(Commands.prefixes.get(i).length());
             // System.out.print(commandName + "\n" + Commands.commands);
-            return Commands.commands.get(Commands.prefixes.get(i)).get(commandName);
+
+            Map<String, Command> commands = Commands.commands.get(Commands.prefixes.get(i));
+            if (commands == null) {
+                continue;
+            }
+
+            Command command = commands.get(commandName);
+            if (command != null) {
+                return command;
+            }
         }
         return null;
     }
@@ -40,13 +49,13 @@ public class CommandArgParser {
             return mapArgs;
         }
 
-        System.out.print(Arrays.toString(args));
+        // System.out.print(Arrays.toString(args));
 
         for (int i = 1; i < args.length; i++) {
             int argIndex = i - 1;
 
             CommandArg commandArg = commandArgs.get(argIndex);
-            System.out.print(argIndex + "\n" + commandArg);
+            // System.out.print(argIndex + "\n" + commandArg);
             if (commandArg == null) {
                 continue;
             }

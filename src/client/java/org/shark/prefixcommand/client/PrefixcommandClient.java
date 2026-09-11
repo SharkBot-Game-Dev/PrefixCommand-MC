@@ -9,5 +9,6 @@ public class PrefixcommandClient implements ClientModInitializer {
     public void onInitializeClient() {
         Commands.registerPrefix("!");
         Commands.registerCommand("!", new testCommand());
+        // Commands.registerCommand("!", new helpCommand());
     }
 }
