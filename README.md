@@ -11,5 +11,28 @@ compileOnly "org.shark.prefixcommand:バージョン"
 # コマンドを作成する
 以下は、サンプルコマンドを作成するサンプルコードです。
 ```
-...書き途中です
+package org.shark.examplePrefixcommand.client.Commands;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
+import org.shark.prefixcommand.client.Command;
+import org.shark.prefixcommand.client.CommandArg;
+
+import java.util.Map;
+
+public class helloCommand extends Command {
+    public helloCommand() {
+        commandName = "hello";
+        commandDescription = "こんにちは！世界！";
+    }
+
+    @Override
+    public void execute(Map<Integer, CommandArg> commandArgs) {
+        Player player = Minecraft.getInstance().player;
+        if (player == null) return;
+        player.sendSystemMessage(Component.literal("こんにちは！世界！"));
+    }
+}
+
 ```
